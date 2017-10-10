@@ -1,0 +1,14 @@
+<h1>Chrome</h1><button type="button" [routerLink]="['../firefox']" class="btn btn-default">Firefox</button>
+<h3>{{ currentValue }}</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Current value</label>
+    <input class="form-control" formControlName="currentValue" placeholder="ex. Chrome" [ngModel]="currentValue">
+  </div>
+  <button class="btn btn-default">Submit</button>
+</form>
+<br>
+<h3>Form changes</h3>
+<pre><code>{{ formValueChanges | json }}</code></pre>
+<h3>Submited form</h3>
+<pre>{{ formValue | json }}</pre>
