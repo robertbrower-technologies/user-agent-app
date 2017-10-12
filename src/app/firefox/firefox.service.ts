@@ -9,8 +9,9 @@ export class FirefoxService {
   constructor(private store: Store<any>) { }
 
   getCurrentValue(): Observable<string> {
-    return this.store.select(appState => {
-        return appState.firefox.firefox.currentValue;
+    debugger;
+    return this.store.select(store => {
+      return store.appFeature.firefox.currentValue;
     })
     .filter(Boolean);
   }

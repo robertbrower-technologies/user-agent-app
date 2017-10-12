@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import { AppActionsService } from './app-actions.service';
+import { DefaultAppState } from  './app-state';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +17,8 @@ export class AppComponent {
 
   constructor(
     private router: Router,
-    private store: Store<any>) {}
+    private store: Store<any>,
+    private appActions: AppActionsService) {}
 
   ngOnInit() {
 
@@ -29,13 +32,8 @@ export class AppComponent {
     this.router.navigate([browser]);
   }
 
-  getCurrentValue(): Observable<string> {
-    return this.store.select(appState => {
-      debugger;
-        console.log(appState);
-        return appState;
-    })
-    .filter(Boolean);
+  setDefaultState() {
+    this.appActions.setRootState(DefaultAppState);
   }
 
 }

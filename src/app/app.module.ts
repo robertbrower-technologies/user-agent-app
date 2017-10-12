@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { appReducer } from './app.reducer';
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
+import { AppActionsService } from './app-actions.service';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    StoreModule.forRoot(appReducer),
+    StoreModule.forRoot({appFeature: appReducer}),
     routing
   ],
-  providers: [],
+  providers: [AppActionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

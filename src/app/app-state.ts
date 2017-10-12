@@ -1,7 +1,10 @@
-import { ChromeState } from './chrome/chrome-state';
-import { FirefoxState } from './firefox/firefox-state';
+import { ChromeFeatureState, DefaultChromeFeatureState } from './chrome/chrome-state';
+import { FirefoxFeatureState, DefaultFirefoxFeatureState } from './firefox/firefox-state';
 
 export interface AppState {
-    readonly chrome: ChromeState;
-    readonly firefox: FirefoxState;
+    
 }
+
+export const DefaultAppState: AppState = {
+    
+};

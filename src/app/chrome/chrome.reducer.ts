@@ -4,6 +4,7 @@ import { ChromeActionsService } from './chrome-actions.service';
 import { ActionWithPayload } from '../action-with-payload';
 
 export function chromeReducer(state: ChromeState = DefaultChromeState, action: Action): ChromeState {
+debugger;
     switch (action.type) {
         case ChromeActionsService.SET:
             let actionWithPayload = action as ActionWithPayload;

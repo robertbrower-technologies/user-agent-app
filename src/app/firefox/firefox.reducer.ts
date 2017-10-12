@@ -4,6 +4,7 @@ import { FirefoxActionsService } from './firefox-actions.service';
 import { ActionWithPayload } from '../action-with-payload';
 
 export function firefoxReducer(state: FirefoxState = DefaultFirefoxState, action: Action): FirefoxState {
+debugger;
   switch (action.type) {
     case FirefoxActionsService.SET:
         let actionWithPayload = action as ActionWithPayload;
