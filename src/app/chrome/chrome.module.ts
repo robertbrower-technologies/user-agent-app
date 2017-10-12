@@ -14,7 +14,7 @@ import { ChromeViewComponent } from './chrome/chrome-view/chrome-view.component'
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forFeature('appFeature', {chrome: chromeReducer}),
+    StoreModule.forFeature('chrome', {chrome: chromeReducer}),
     routing,
   ],
   declarations: [ChromeComponent, ChromeViewComponent],

@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { createAction } from '../createAction';
-import { DefaultChromeState } from './chrome-state';
 
 @Injectable()
 export class ChromeActionsService {
 
-  static SET = 'CHROME_SET';
+  static SET_CHROME_CURRENT_VALUE = 'SET_CHROME_CURRENT_VALUE';
   
-  static RESET = 'CHROME_RESET';
+  static SET_STATE = 'SET_STATE';
 
   constructor(private store: Store<any>) { }
 
-  set(value: string) {
-    this.store.dispatch(createAction(ChromeActionsService.SET, {
+  setCurrentValue(value: string) {
+    this.store.dispatch(createAction(ChromeActionsService.SET_CHROME_CURRENT_VALUE, {
       currentValue: value
     }));
   }
 
-  reset() {
-    this.store.dispatch(createAction(ChromeActionsService.RESET));
+  setState(state: any) {
+    this.store.dispatch(createAction(ChromeActionsService.SET_STATE, state));
   }
 
 }

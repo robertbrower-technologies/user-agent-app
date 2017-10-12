@@ -33,7 +33,19 @@ export class AppComponent {
   }
 
   setDefaultState() {
-    this.appActions.setRootState(DefaultAppState);
+    this.appActions.setRootState({
+      chrome: {
+        chrome: {
+          currentValue: 'Chrome'
+        }
+      }
+      ,
+      firefox: {
+        firefox: {
+          currentValue: 'Firefox'
+        }
+      }
+    });
   }
 
 }

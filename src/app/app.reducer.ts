@@ -6,9 +6,9 @@ import { ActionWithPayload } from './action-with-payload';
 export function appReducer(state: AppState = DefaultAppState, action: Action): AppState {
 debugger;
   switch (action.type) {
-    case AppActionsService.SET_DEFAULT_STATE:
+    case AppActionsService.SET_STATE:
         let actionWithPayload = action as ActionWithPayload;
-        return actionWithPayload.payload;
+        return Object.assign({}, actionWithPayload.payload);
     default:
         return state;
   }

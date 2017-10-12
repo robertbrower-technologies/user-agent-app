@@ -14,7 +14,7 @@ import { AppActionsService } from './app-actions.service';
   imports: [
     BrowserModule,
     FormsModule,
-    StoreModule.forRoot({appFeature: appReducer}),
+    StoreModule.forRoot(appReducer),
     routing
   ],
   providers: [AppActionsService],

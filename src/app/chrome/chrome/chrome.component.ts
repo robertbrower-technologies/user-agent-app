@@ -21,7 +21,7 @@ export class ChromeComponent {
   }
 
   onChanged(state: ChromeState) {
-    this.chromeActions.set(state.currentValue);
+    this.chromeActions.setCurrentValue(state.currentValue);
   }
 
 }

@@ -14,7 +14,7 @@ import { FirefoxViewComponent } from './firefox/firefox-view/firefox-view.compon
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forFeature('appFeature', {firefox: firefoxReducer}),
+    StoreModule.forFeature('firefox', {firefox: firefoxReducer}),
     routing
   ],
   declarations: [FirefoxComponent, FirefoxViewComponent],

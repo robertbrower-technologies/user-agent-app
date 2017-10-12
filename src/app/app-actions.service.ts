@@ -4,9 +4,9 @@ import { createAction } from './createAction';
 
 @Injectable()
 export class AppActionsService {
-  static SET_DEFAULT_STATE = 'SET_DEFAULT_STATE';
+  static SET_STATE = 'SET_STATE';
   constructor(private store: Store<any>) { }
-  setRootState(value: any) {
-    this.store.dispatch(createAction(AppActionsService.SET_DEFAULT_STATE, value));
+  setRootState(state: any) {
+    this.store.dispatch(createAction(AppActionsService.SET_STATE, state));
   }
 }

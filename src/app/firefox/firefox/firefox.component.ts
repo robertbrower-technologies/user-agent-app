@@ -21,7 +21,7 @@ export class FirefoxComponent {
   }
 
   onChanged(state: FirefoxState) {
-    this.firefoxActions.set(state.currentValue);
+    this.firefoxActions.setCurrentValue(state.currentValue);
   }
 
 }

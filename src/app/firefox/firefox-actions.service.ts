@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { createAction } from '../createAction';
-import { DefaultFirefoxState } from './firefox-state';
 
 @Injectable()
 export class FirefoxActionsService {
 
-  static SET = 'FIREFOX_SET';
+  static SET_FIREFOX_CURRENT_VALUE = 'SET_FIREFOX_CURRENT_VALUE';
   
-  static RESET = 'FIREFOX_RESET';
+  static SET_STATE = 'SET_STATE';
 
   constructor(private store: Store<any>) { }
 
-  set(value: string) {
-    this.store.dispatch(createAction(FirefoxActionsService.SET, {
+  setCurrentValue(value: string) {
+    this.store.dispatch(createAction(FirefoxActionsService.SET_FIREFOX_CURRENT_VALUE, {
       currentValue: value
     }));
   }
 
-  reset() {
-    this.store.dispatch(createAction(FirefoxActionsService.RESET, DefaultFirefoxState));
+  setState(state: any) {
+    this.store.dispatch(createAction(FirefoxActionsService.SET_STATE, state));
   }
 
 }

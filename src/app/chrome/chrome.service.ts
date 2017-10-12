@@ -9,9 +9,8 @@ export class ChromeService {
   constructor(private store: Store<any>) { }
 
   getCurrentValue(): Observable<string> {
-    debugger;
     return this.store.select(store => {
-      return store.appFeature.chrome.currentValue;
+      return store.chrome.chrome.currentValue;
     })
     .filter(Boolean);
   }

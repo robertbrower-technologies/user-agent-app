@@ -5,12 +5,12 @@ import { ActionWithPayload } from '../action-with-payload';
 
 export function chromeReducer(state: ChromeState = DefaultChromeState, action: Action): ChromeState {
 debugger;
+    let actionWithPayload = action as ActionWithPayload;
     switch (action.type) {
-        case ChromeActionsService.SET:
-            let actionWithPayload = action as ActionWithPayload;
+        case ChromeActionsService.SET_CHROME_CURRENT_VALUE:
             return Object.assign({}, state, actionWithPayload.payload);
-        case ChromeActionsService.RESET:
-            return Object.assign({}, state, DefaultChromeState);
+        case ChromeActionsService.SET_STATE:           
+            return Object.assign({}, state, actionWithPayload.payload.chrome.chrome);
         default:
             return state;
     }
