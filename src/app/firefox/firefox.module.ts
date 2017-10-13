@@ -8,6 +8,7 @@ import { firefoxReducer } from './firefox.reducer';
 import { routing } from './firefox.routing';
 import { FirefoxComponent } from './firefox/firefox.component';
 import { FirefoxViewComponent } from './firefox/firefox-view/firefox-view.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { FirefoxViewComponent } from './firefox/firefox-view/firefox-view.compon
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forFeature('firefox', {firefox: firefoxReducer}),
+    SharedModule,
     routing
   ],
   declarations: [FirefoxComponent, FirefoxViewComponent],

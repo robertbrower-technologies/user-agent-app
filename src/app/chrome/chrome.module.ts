@@ -8,6 +8,7 @@ import { chromeReducer } from './chrome.reducer';
 import { routing } from './chrome.routing';
 import { ChromeComponent } from './chrome/chrome.component';
 import { ChromeViewComponent } from './chrome/chrome-view/chrome-view.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ChromeViewComponent } from './chrome/chrome-view/chrome-view.component'
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forFeature('chrome', {chrome: chromeReducer}),
+    SharedModule,
     routing,
   ],
   declarations: [ChromeComponent, ChromeViewComponent],

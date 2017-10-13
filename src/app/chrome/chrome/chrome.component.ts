@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { ChromeService } from '../chrome.service';
 import { ChromeActionsService } from '../chrome-actions.service';
 import { ChromeState, DefaultChromeState } from '../chrome-state';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'chrome',
@@ -15,9 +16,12 @@ export class ChromeComponent {
 
   constructor(
     private chrome: ChromeService,
-    private chromeActions: ChromeActionsService
+    private chromeActions: ChromeActionsService,
+    private sharedService: SharedService
   ) {
     this.currentValue$ = this.chrome.getCurrentValue();
+    debugger;
+    this.chromeActions.setCurrentValue(this.sharedService.state.chrome.chrome.currentValue);
   }
 
   onChanged(state: ChromeState) {

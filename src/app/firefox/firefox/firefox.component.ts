@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { FirefoxService } from '../firefox.service';
 import { FirefoxActionsService } from '../firefox-actions.service';
 import { FirefoxState, DefaultFirefoxState } from '../firefox-state';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'firefox',
@@ -15,9 +16,12 @@ export class FirefoxComponent {
 
   constructor(
     private firefox: FirefoxService,
-    private firefoxActions: FirefoxActionsService
+    private firefoxActions: FirefoxActionsService,
+    private sharedService: SharedService
   ) {
     this.currentValue$ = this.firefox.getCurrentValue();
+    debugger;
+    this.firefoxActions.setCurrentValue(this.sharedService.state.firefox.firefox.currentValue);
   }
 
   onChanged(state: FirefoxState) {

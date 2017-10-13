@@ -6,7 +6,7 @@ import { createAction } from './createAction';
 export class AppActionsService {
   static SET_STATE = 'SET_STATE';
   constructor(private store: Store<any>) { }
-  setRootState(state: any) {
+  setState(state: any) {
     this.store.dispatch(createAction(AppActionsService.SET_STATE, state));
   }
 }
