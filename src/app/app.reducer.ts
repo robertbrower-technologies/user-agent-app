@@ -7,14 +7,7 @@ import { ActionWithPayload } from './action-with-payload';
 export function appReducer(state: AppState = DefaultAppState, action: Action): AppState {
 debugger;
   switch (action.type) {
-    // case AppActionsService.SET_STATE:
-    //     let actionWithPayload = action as ActionWithPayload;
-    //     return Object.assign({}, actionWithPayload.payload);
     default:
         return state;
   }
 }
-
-// export const appReducer: ActionReducerMap<AppState> = {
-  
-// };

@@ -26,13 +26,9 @@ export class AppComponent {
       .subscribe(appState => {
         if (Object.keys(appState).length > 1) {
           console.log(appState);
-          let storedState = this.sharedService.state ? this.sharedService.state : {};
-          localStorage.setItem(
-            "user-agent-app",
-            JSON.stringify(Object.assign(
-              {},
-              storedState,
-              appState)));
+          let sharedState = this.sharedService.state ? this.sharedService.state : {};
+          localStorage.setItem("user-agent-app", JSON.stringify(
+            Object.assign({}, sharedState, appState)));
         }
       });
 
