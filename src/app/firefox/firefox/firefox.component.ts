@@ -21,11 +21,14 @@ export class FirefoxComponent {
   ) {
     this.currentValue$ = this.firefox.getCurrentValue();
     debugger;
-    this.firefoxActions.setCurrentValue(this.sharedService.state.firefox.firefox.currentValue);
+    if (this.sharedService.state && this.sharedService.state.firefox) {
+      this.firefoxActions.setCurrentValue(this.sharedService.state.firefox.firefox.currentValue);
+    }
   }
 
   onChanged(state: FirefoxState) {
     this.firefoxActions.setCurrentValue(state.currentValue);
+    this.sharedService.state.firefox.firefox.currentValue = state.currentValue;
   }
 
 }

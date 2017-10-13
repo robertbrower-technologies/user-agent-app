@@ -10,7 +10,9 @@ debugger;
         case FirefoxActionsService.SET_FIREFOX_CURRENT_VALUE:
             return Object.assign({}, state, actionWithPayload.payload);
         case FirefoxActionsService.SET_STATE:
-            return Object.assign({}, state, actionWithPayload.payload.firefox.firefox);
+            return actionWithPayload.payload.firefox ?
+                Object.assign({}, state, actionWithPayload.payload.firefox.firefox) :
+                state;
         default:
             return state;
   }

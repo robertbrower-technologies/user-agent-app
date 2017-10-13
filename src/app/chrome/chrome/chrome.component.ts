@@ -21,11 +21,14 @@ export class ChromeComponent {
   ) {
     this.currentValue$ = this.chrome.getCurrentValue();
     debugger;
-    this.chromeActions.setCurrentValue(this.sharedService.state.chrome.chrome.currentValue);
+    if (this.sharedService.state && this.sharedService.state.chrome) {
+      this.chromeActions.setCurrentValue(this.sharedService.state.chrome.chrome.currentValue);
+    }
   }
 
   onChanged(state: ChromeState) {
     this.chromeActions.setCurrentValue(state.currentValue);
+    this.sharedService.state.chrome.chrome.currentValue = state.currentValue;
   }
 
 }

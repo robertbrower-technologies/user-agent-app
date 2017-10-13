@@ -3,16 +3,16 @@
 <button type="button" [routerLink]="['firefox']" class="btn btn-default">Firefox</button>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group">
-        <label>Current value</label>
+        <!-- <label>Current value</label>
         <input class="form-control" formControlName="chrome" placeholder="ex. Chrome" [ngModel]="chrome">
-        <input class="form-control" formControlName="firefox" placeholder="ex. Firefox" [ngModel]="firefox">
+        <input class="form-control" formControlName="firefox" placeholder="ex. Firefox" [ngModel]="firefox"> -->
         <button class="btn btn-default">Submit</button>
     </div>
 </form>
-<br>
+<!-- <br>
 <h3>Form changes</h3>
 <pre><code>{{ formValueChanges | json }}</code></pre>
 <h3>Submited form</h3>
 <pre>{{ formValue | json }}</pre>
-<hr/>
+<hr/> -->
 <router-outlet></router-outlet>

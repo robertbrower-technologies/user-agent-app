@@ -10,7 +10,9 @@ debugger;
         case ChromeActionsService.SET_CHROME_CURRENT_VALUE:
             return Object.assign({}, state, actionWithPayload.payload);
         case ChromeActionsService.SET_STATE:
-            return Object.assign({}, state, actionWithPayload.payload.chrome.chrome);
+            return actionWithPayload.payload.chrome ?
+                Object.assign({}, state, actionWithPayload.payload.chrome.chrome) :
+                state;
         default:
             return state;
     }

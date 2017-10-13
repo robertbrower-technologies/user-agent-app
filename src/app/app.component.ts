@@ -48,7 +48,16 @@ export class AppComponent {
       .debounceTime(500)
       .subscribe(appState => {
         debugger;
-        console.log(appState);
+        if (Object.keys(appState).length > 1) {
+          console.log(appState);
+          let storedState = this.sharedService.state ? this.sharedService.state : {};
+          localStorage.setItem(
+            "user-agent-app",
+            JSON.stringify(Object.assign(
+              {},
+              storedState,
+              appState)));
+        }
       });
 
     // let userAgent = navigator.userAgent.toLowerCase();
@@ -60,19 +69,20 @@ export class AppComponent {
     debugger;
     this.formValue = this.form.value;
 
-    this.sharedService.state = {
-      chrome: {
-        chrome: {
-          currentValue: this.formValue.chrome
-        }
-      }
-      ,
-      firefox: {
-        firefox: {
-          currentValue: this.formValue.firefox
-        }
-      }
-    };
+    this.sharedService.state = JSON.parse(localStorage.getItem("user-agent-app"));
+    // {
+    //   chrome: {
+    //     chrome: {
+    //       currentValue: this.formValue.chrome
+    //     }
+    //   }
+    //   ,
+    //   firefox: {
+    //     firefox: {
+    //       currentValue: this.formValue.firefox
+    //     }
+    //   }
+    // };
 
     this.appActions.setState(this.sharedService.state);
   }
