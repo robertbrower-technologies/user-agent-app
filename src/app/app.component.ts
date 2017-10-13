@@ -7,6 +7,8 @@ import { Subscription } from 'rxjs/Subscription';
 import { AppActionsService } from './app-actions.service';
 import { DefaultAppState } from  './app-state';
 import { SharedService } from './shared/shared.service';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 @Component({
   selector: 'app-root',
@@ -42,6 +44,8 @@ export class AppComponent {
   ngOnInit() {
 
     this.store.select(appState => appState)
+      .distinctUntilChanged()
+      .debounceTime(500)
       .subscribe(appState => {
         debugger;
         console.log(appState);
