@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { FirefoxService } from '../firefox.service';
 import { FirefoxActionsService } from '../firefox-actions.service';
-import { FirefoxState, DefaultFirefoxState } from '../firefox-state';
+import { FirefoxState } from '../firefox-state';
 import { SharedService } from '../../shared/shared.service';
 
 @Component({
@@ -20,7 +20,6 @@ export class FirefoxComponent {
     private sharedService: SharedService
   ) {
     this.currentValue$ = this.firefox.getCurrentValue();
-    debugger;
     if (this.sharedService.state && this.sharedService.state.firefox) {
       this.firefoxActions.setCurrentValue(this.sharedService.state.firefox.firefox.currentValue);
     }

@@ -1,14 +1,15 @@
-<h1>Chrome</h1>
-<h3>{{ currentValue }}</h3>
+<h2>Chrome</h2>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label>Current value</label>
+    <label>Set current value</label>
     <input class="form-control" formControlName="currentValue" placeholder="ex. Chrome" [ngModel]="currentValue">
+    <button class="btn btn-default">Submit</button>
   </div>
-  <button class="btn btn-default">Submit</button>
 </form>
 <br>
 <h3>Form changes</h3>
 <pre><code>{{ formValueChanges | json }}</code></pre>
 <h3>Submited form</h3>
 <pre>{{ formValue | json }}</pre>
+<h3>Current value</h3>
+<pre>{{ currentValue }}</pre>
