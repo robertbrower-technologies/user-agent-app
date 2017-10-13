@@ -27,7 +27,6 @@ export class FirefoxComponent {
 
   onChanged(state: FirefoxState) {
     this.firefoxActions.setCurrentValue(state.currentValue);
-    this.sharedService.state.firefox.firefox.currentValue = state.currentValue;
   }
 
 }

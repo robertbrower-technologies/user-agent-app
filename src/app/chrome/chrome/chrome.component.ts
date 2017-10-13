@@ -27,7 +27,6 @@ export class ChromeComponent {
 
   onChanged(state: ChromeState) {
     this.chromeActions.setCurrentValue(state.currentValue);
-    this.sharedService.state.chrome.chrome.currentValue = state.currentValue;
   }
 
 }
