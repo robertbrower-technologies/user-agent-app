@@ -39,6 +39,8 @@ export class AppComponent {
         }
       });
 
+    this.onGet();
+
     // let userAgent = navigator.userAgent.toLowerCase();
     // let browser = userAgent.search('chrome') != -1 ? 'chrome' : 'firefox';
     // this.router.navigate([browser]);
