@@ -12,8 +12,6 @@ import 'rxjs/add/operator/debounceTime';
 })
 export class AppComponent {
 
-  private appState: any;
-
   constructor(
     private router: Router,
     private store: Store<any>,
@@ -22,22 +20,19 @@ export class AppComponent {
 
   ngOnInit() {
 
-    this.appService.getAppState('appState')
-      .subscribe(appState => this.appState = appState)
-
+    let state = localStorage.getItem("user-agent-app");
+    this.appActions.setState(state ? JSON.parse(state) : {});
+        
     this.appService.getAppState()
       .debounceTime(1000)
       .subscribe(rootState => {
         if (Object.keys(rootState).length > 1) {
-          console.log(rootState);
+          console.log(JSON.stringify(rootState));
           let filteredState = {};
           Object.keys(rootState).filter(key => key !=='appState').forEach(key => filteredState[key] = rootState[key]);
-          localStorage.setItem("user-agent-app", JSON.stringify(
-            Object.assign({}, this.appState ? this.appState : {}, filteredState)));
+          localStorage.setItem("user-agent-app", JSON.stringify(filteredState));
         }
       });
-
-    this.onGet();
 
     let userAgent = navigator.userAgent.toLowerCase();
     let browser = userAgent.search('chrome') != -1 ? 'chrome' : 'firefox';
@@ -45,13 +40,11 @@ export class AppComponent {
   }
 
   onGet() {
-    debugger;
     let state = localStorage.getItem("user-agent-app");
     this.appActions.setState(state ? JSON.parse(state) : {});
   }
 
   onClear() {
-    debugger;
     localStorage.removeItem("user-agent-app");
   }
 

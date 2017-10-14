@@ -11,19 +11,13 @@ import { FirefoxState } from '../firefox-state';
 })
 export class FirefoxComponent {
 
-  private value: string;
-
   public currentValue$: Observable<string>;
 
   constructor(
     private firefox: FirefoxService,
     private firefoxActions: FirefoxActionsService
   ) {
-    this.firefox.getValue().subscribe(value => this.value = value);
     this.currentValue$ = this.firefox.getCurrentValue();
-    if (this.value) {
-      this.firefoxActions.setCurrentValue(this.value);
-    }
   }
 
   onChanged(state: FirefoxState) {

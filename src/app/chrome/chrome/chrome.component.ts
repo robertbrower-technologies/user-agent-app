@@ -11,19 +11,13 @@ import { ChromeState } from '../chrome-state';
 })
 export class ChromeComponent {
 
-  private value: string;
-  
   public currentValue$: Observable<string>;
 
   constructor(
     private chrome: ChromeService,
     private chromeActions: ChromeActionsService
   ) {
-    this.chrome.getValue().subscribe(value => this.value = value);
     this.currentValue$ = this.chrome.getCurrentValue();
-    if (this.value) {
-      this.chromeActions.setCurrentValue(this.value);
-    }
   }
 
   onChanged(state: ChromeState) {

@@ -5,21 +5,14 @@ import { createAction } from '../createAction';
 @Injectable()
 export class FirefoxActionsService {
 
-  static SET_FIREFOX_CURRENT_VALUE = 'SET_FIREFOX_CURRENT_VALUE';
+  static FIREFOX_SET_CURRENT_VALUE = 'FIREFOX_SET_CURRENT_VALUE';
 
-  static SET_STATE = 'SET_STATE';
-  
   constructor(
     private store: Store<any>) { }
 
   setCurrentValue(value: string) {
-    this.store.dispatch(createAction(FirefoxActionsService.SET_FIREFOX_CURRENT_VALUE, {
+    this.store.dispatch(createAction(FirefoxActionsService.FIREFOX_SET_CURRENT_VALUE, {
       value: value
-    }));
-    this.store.dispatch(createAction(FirefoxActionsService.SET_STATE, {
-      firefox: {
-        firefox: { value: value }
-      }
     }));
   }
 

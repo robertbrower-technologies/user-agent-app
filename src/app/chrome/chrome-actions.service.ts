@@ -5,21 +5,14 @@ import { createAction } from '../createAction';
 @Injectable()
 export class ChromeActionsService {
 
-  static SET_CHROME_CURRENT_VALUE = 'SET_CHROME_CURRENT_VALUE';
+  static CHROME_SET_CURRENT_VALUE = 'CHROME_SET_CURRENT_VALUE';
 
-  static SET_STATE = 'SET_STATE';
-    
   constructor(
     private store: Store<any>) { }
 
   setCurrentValue(value: string) {
-    this.store.dispatch(createAction(ChromeActionsService.SET_CHROME_CURRENT_VALUE, {
+    this.store.dispatch(createAction(ChromeActionsService.CHROME_SET_CURRENT_VALUE, {
       value: value
-    }));
-    this.store.dispatch(createAction(ChromeActionsService.SET_STATE, {
-      chrome: {
-        chrome: { value: value }
-      }
     }));
   }
 
