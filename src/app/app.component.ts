@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppActionsService } from './app-actions.service';
 import { AppService } from './app.service';
-import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/debounceTime';
 
 @Component({
@@ -27,7 +26,6 @@ export class AppComponent {
       .subscribe(appState => this.appState = appState)
 
     this.appService.getAppState()
-      .distinctUntilChanged()
       .debounceTime(1000)
       .subscribe(rootState => {
         if (Object.keys(rootState).length > 1) {
@@ -41,9 +39,9 @@ export class AppComponent {
 
     this.onGet();
 
-    // let userAgent = navigator.userAgent.toLowerCase();
-    // let browser = userAgent.search('chrome') != -1 ? 'chrome' : 'firefox';
-    // this.router.navigate([browser]);
+    let userAgent = navigator.userAgent.toLowerCase();
+    let browser = userAgent.search('chrome') != -1 ? 'chrome' : 'firefox';
+    this.router.navigate([browser]);
   }
 
   onGet() {
