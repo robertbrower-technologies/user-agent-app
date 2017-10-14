@@ -1,7 +1,8 @@
 <h1>App</h1>
 <button type="button" [routerLink]="['chrome']" class="btn btn-default">Go to Chrome</button>
 <button type="button" [routerLink]="['firefox']" class="btn btn-default">Go to Firefox</button>
-<button class="btn btn-default" (click)="onSubmit()">Get from localStore</button>
+<button class="btn btn-default" (click)="onGet()">Get from localStore</button>
+<button class="btn btn-default" (click)="onClear()">Clear localStore</button>
 <h1>Lazy</h1>
 <hr/>
 <router-outlet></router-outlet>

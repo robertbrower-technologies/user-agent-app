@@ -17,7 +17,7 @@ export class FirefoxService {
 
   getValue(): Observable<string> {
     return this.store.select(store => {
-      return store.appState.firefox ? 
+      return store.appState.firefox && store.appState.firefox.firefox ? 
         store.appState.firefox.firefox.currentValue :
         undefined;
     })

@@ -17,7 +17,7 @@ export class ChromeService {
 
   getValue(): Observable<string> {
     return this.store.select(store => {
-      return store.appState.chrome ?
+      return store.appState.chrome && store.appState.chrome.chrome ?
         store.appState.chrome.chrome.currentValue :
         undefined;
     })

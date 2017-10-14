@@ -16,6 +16,11 @@ export class FirefoxActionsService {
     this.store.dispatch(createAction(FirefoxActionsService.SET_FIREFOX_CURRENT_VALUE, {
       currentValue: value
     }));
+    this.store.dispatch(createAction(FirefoxActionsService.SET_STATE, {
+      firefox: {
+        firefox: { currentValue: value }
+      }
+    }));
   }
 
 }

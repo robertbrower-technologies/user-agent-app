@@ -9,7 +9,7 @@ debugger;
   let actionWithPayload = action as ActionWithPayload;
   switch (action.type) {
     case AppActionsService.SET_STATE:
-    return actionWithPayload.payload.firefox ?
+    return actionWithPayload.payload ?
         Object.assign({}, state, actionWithPayload.payload) :
         state;
     default:
