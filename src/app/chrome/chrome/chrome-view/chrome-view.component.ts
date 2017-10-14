@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { ChromeState } from '../../chrome-state';
@@ -9,7 +9,7 @@ import { ChromeState } from '../../chrome-state';
   styleUrls: ['./chrome-view.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChromeViewComponent implements OnInit {
+export class ChromeViewComponent {
 
   private form: FormGroup;
   
@@ -26,9 +26,6 @@ export class ChromeViewComponent implements OnInit {
     this.form.valueChanges.subscribe(changes => {
       this.formValueChanges = changes;
     })
-  }
-
-  ngOnInit() {
   }
 
   onSubmit() {

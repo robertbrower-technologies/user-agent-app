@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { FirefoxState } from '../../firefox-state';
@@ -9,7 +9,7 @@ import { FirefoxState } from '../../firefox-state';
   styleUrls: ['./firefox-view.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FirefoxViewComponent implements OnInit {
+export class FirefoxViewComponent {
 
   private form: FormGroup;
   
@@ -26,9 +26,6 @@ export class FirefoxViewComponent implements OnInit {
     this.form.valueChanges.subscribe(changes => {
       this.formValueChanges = changes;
     })
-  }
-
-  ngOnInit() {
   }
 
   onSubmit() {
