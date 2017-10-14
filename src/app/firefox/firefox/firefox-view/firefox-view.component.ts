@@ -17,12 +17,12 @@ export class FirefoxViewComponent implements OnInit {
   
   private formValue: FirefoxState;
 
-  @Input() public currentValue: string;
+  @Input() public value: string;
 
   @Output() public changed: EventEmitter<FirefoxState> = new EventEmitter<FirefoxState>();
 
   constructor(private formBuilder: FormBuilder) {
-    this.form = formBuilder.group({currentValue: this.currentValue});
+    this.form = formBuilder.group({value: this.value});
     this.form.valueChanges.subscribe(changes => {
       this.formValueChanges = changes;
     })

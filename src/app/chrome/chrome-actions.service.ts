@@ -14,11 +14,11 @@ export class ChromeActionsService {
 
   setCurrentValue(value: string) {
     this.store.dispatch(createAction(ChromeActionsService.SET_CHROME_CURRENT_VALUE, {
-      currentValue: value
+      value: value
     }));
     this.store.dispatch(createAction(ChromeActionsService.SET_STATE, {
       chrome: {
-        chrome: { currentValue: value }
+        chrome: { value: value }
       }
     }));
   }

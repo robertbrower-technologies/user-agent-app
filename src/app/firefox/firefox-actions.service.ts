@@ -14,11 +14,11 @@ export class FirefoxActionsService {
 
   setCurrentValue(value: string) {
     this.store.dispatch(createAction(FirefoxActionsService.SET_FIREFOX_CURRENT_VALUE, {
-      currentValue: value
+      value: value
     }));
     this.store.dispatch(createAction(FirefoxActionsService.SET_STATE, {
       firefox: {
-        firefox: { currentValue: value }
+        firefox: { value: value }
       }
     }));
   }

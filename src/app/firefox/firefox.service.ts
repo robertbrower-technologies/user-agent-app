@@ -10,7 +10,7 @@ export class FirefoxService {
 
   getCurrentValue(): Observable<string> {
     return this.store.select(store => {
-      return store.firefox.firefox.currentValue;
+      return store.firefox.firefox.value;
     })
     .filter(Boolean);
   }
@@ -18,7 +18,7 @@ export class FirefoxService {
   getValue(): Observable<string> {
     return this.store.select(store => {
       return store.appState.firefox && store.appState.firefox.firefox ? 
-        store.appState.firefox.firefox.currentValue :
+        store.appState.firefox.firefox.value :
         undefined;
     })
     .filter(Boolean);

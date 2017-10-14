@@ -1,7 +1,7 @@
 export interface FirefoxState {
-    readonly currentValue: string;
+    readonly value: string;
 };
 
 export const DefaultFirefoxState: FirefoxState = {
-    currentValue: 'Firefox'
+    value: 'Firefox'
 };

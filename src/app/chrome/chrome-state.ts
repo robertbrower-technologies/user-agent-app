@@ -1,7 +1,7 @@
 export interface ChromeState {
-    readonly currentValue: string;
+    readonly value: string;
 };
 
 export const DefaultChromeState: ChromeState = {
-    currentValue: 'Chrome'
+    value: 'Chrome'
 };

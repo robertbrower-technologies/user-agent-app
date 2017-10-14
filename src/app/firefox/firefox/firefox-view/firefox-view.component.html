@@ -2,7 +2,7 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label>Set current value</label>
-    <input class="form-control" formControlName="currentValue" placeholder="ex. Firefox" [ngModel]="currentValue">
+    <input class="form-control" formControlName="value" placeholder="ex. Firefox" [ngModel]="value">
     <button class="btn btn-default">Submit</button>
   </div>
 </form>
@@ -12,4 +12,4 @@
 <h3>Submited form</h3>
 <pre>{{ formValue | json }}</pre>
 <h3>Current value</h3>
-<pre>{{ currentValue }}</pre>
+<pre>{{ value }}</pre>

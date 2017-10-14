@@ -13,21 +13,21 @@ export class FirefoxComponent {
 
   private value: string;
 
-  public currentValue$: Observable<string>;
+  public value$: Observable<string>;
 
   constructor(
     private firefox: FirefoxService,
     private firefoxActions: FirefoxActionsService
   ) {
     this.firefox.getValue().subscribe(value => this.value = value);
-    this.currentValue$ = this.firefox.getCurrentValue();
+    this.value$ = this.firefox.getCurrentValue();
     if (this.value) {
       this.firefoxActions.setCurrentValue(this.value);
     }
   }
 
   onChanged(state: FirefoxState) {
-    this.firefoxActions.setCurrentValue(state.currentValue);
+    this.firefoxActions.setCurrentValue(state.value);
   }
 
 }
