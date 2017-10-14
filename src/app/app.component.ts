@@ -25,13 +25,10 @@ export class AppComponent {
         
     this.appService.getAppState()
       .debounceTime(1000)
-      .subscribe(rootState => {
-        if (Object.keys(rootState).length > 1) {
-          console.log(JSON.stringify(rootState));
-          let filteredState = {};
-          Object.keys(rootState).filter(key => key !=='appState').forEach(key => filteredState[key] = rootState[key]);
-          localStorage.setItem("user-agent-app", JSON.stringify(filteredState));
-        }
+      .subscribe(appState => {
+        let item = JSON.stringify(appState);
+        console.log(item);
+        localStorage.setItem("user-agent-app", item);
       });
 
     let userAgent = navigator.userAgent.toLowerCase();
@@ -40,8 +37,8 @@ export class AppComponent {
   }
 
   onGet() {
-    let state = localStorage.getItem("user-agent-app");
-    this.appActions.setState(state ? JSON.parse(state) : {});
+    let item = localStorage.getItem("user-agent-app");
+    this.appActions.setState(item ? JSON.parse(item) : {});
   }
 
   onClear() {
