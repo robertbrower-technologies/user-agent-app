@@ -17,7 +17,7 @@ import { ActionWithPayload } from './action-with-payload';
   imports: [
     BrowserModule,
     FormsModule,
-    StoreModule.forRoot({ appState: appReducer }, { metaReducers: [combinePersistedAndLocalState] }),
+    StoreModule.forRoot({appState: appReducer}, {metaReducers: [combinePersistedAndLocalState]}),
     routing
   ],
   providers: [AppActionsService, AppService],
