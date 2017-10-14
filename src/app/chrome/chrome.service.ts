@@ -15,4 +15,13 @@ export class ChromeService {
     .filter(Boolean);
   }
 
+  getValue(): Observable<string> {
+    return this.store.select(store => {
+      return store.appState.chrome ?
+        store.appState.chrome.chrome.currentValue :
+        undefined;
+    })
+    .filter(Boolean);
+  }
+
 }

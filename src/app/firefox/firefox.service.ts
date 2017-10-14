@@ -15,4 +15,13 @@ export class FirefoxService {
     .filter(Boolean);
   }
 
+  getValue(): Observable<string> {
+    return this.store.select(store => {
+      return store.appState.firefox ? 
+        store.appState.firefox.firefox.currentValue :
+        undefined;
+    })
+    .filter(Boolean);
+  }
+
 }

@@ -13,6 +13,8 @@ import 'rxjs/add/operator/debounceTime';
 })
 export class AppComponent {
 
+  private appState: any;
+
   constructor(
     private router: Router,
     private store: Store<any>,
@@ -20,15 +22,18 @@ export class AppComponent {
     private sharedService: SharedService) {}
 
   ngOnInit() {
-    this.store.select(appState => appState)
+
+    this.sharedService.getAppState('appState')
+      .subscribe(appState => this.appState = appState)
+
+    this.sharedService.getAppState()
       .distinctUntilChanged()
-      .debounceTime(500)
-      .subscribe(appState => {
-        if (Object.keys(appState).length > 1) {
-          console.log(appState);
-          let sharedState = this.sharedService.state ? this.sharedService.state : {};
+      .debounceTime(1000)
+      .subscribe(rootState => {
+        if (Object.keys(rootState).length > 1) {
+          console.log(rootState);
           localStorage.setItem("user-agent-app", JSON.stringify(
-            Object.assign({}, sharedState, appState)));
+            Object.assign({}, this.appState ? this.appState : {}, rootState)));
         }
       });
 
@@ -38,8 +43,7 @@ export class AppComponent {
   }
 
   onSubmit() {
-    this.sharedService.state = JSON.parse(localStorage.getItem("user-agent-app"));
-    this.appActions.setState(this.sharedService.state);
+    this.appActions.setState(JSON.parse(localStorage.getItem("user-agent-app")));
   }
 
 }

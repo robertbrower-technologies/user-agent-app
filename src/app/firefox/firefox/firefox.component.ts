@@ -12,6 +12,8 @@ import { SharedService } from '../../shared/shared.service';
 })
 export class FirefoxComponent {
 
+  private value: string;
+
   public currentValue$: Observable<string>;
 
   constructor(
@@ -19,9 +21,10 @@ export class FirefoxComponent {
     private firefoxActions: FirefoxActionsService,
     private sharedService: SharedService
   ) {
+    this.firefox.getValue().subscribe(value => this.value = value);
     this.currentValue$ = this.firefox.getCurrentValue();
-    if (this.sharedService.state && this.sharedService.state.firefox) {
-      this.firefoxActions.setCurrentValue(this.sharedService.state.firefox.firefox.currentValue);
+    if (this.value) {
+      this.firefoxActions.setCurrentValue(this.value);
     }
   }
 

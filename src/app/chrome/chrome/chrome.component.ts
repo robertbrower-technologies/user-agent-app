@@ -12,6 +12,8 @@ import { SharedService } from '../../shared/shared.service';
 })
 export class ChromeComponent {
 
+  private value: string;
+  
   public currentValue$: Observable<string>;
 
   constructor(
@@ -19,9 +21,10 @@ export class ChromeComponent {
     private chromeActions: ChromeActionsService,
     private sharedService: SharedService
   ) {
+    this.chrome.getValue().subscribe(value => this.value = value);
     this.currentValue$ = this.chrome.getCurrentValue();
-    if (this.sharedService.state && this.sharedService.state.chrome) {
-      this.chromeActions.setCurrentValue(this.sharedService.state.chrome.chrome.currentValue);
+    if (this.value) {
+      this.chromeActions.setCurrentValue(this.value);
     }
   }
 

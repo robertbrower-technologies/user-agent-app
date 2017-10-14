@@ -16,7 +16,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ app: appReducer }),
+    StoreModule.forRoot({ appState: appReducer }),
     SharedModule.forRoot(),
     routing
   ],
