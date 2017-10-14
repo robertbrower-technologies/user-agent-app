@@ -11,11 +11,11 @@ import { ChromeState } from '../../chrome-state';
 })
 export class ChromeViewComponent {
 
-  private form: FormGroup;
+  public form: FormGroup;
   
-  private formValueChanges: ChromeState;
+  public formValueChanges: ChromeState;
   
-  private formValue: ChromeState;
+  public formValue: ChromeState;
 
   @Input() public value: string;
 

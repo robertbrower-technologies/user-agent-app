@@ -11,11 +11,11 @@ import { FirefoxState } from '../../firefox-state';
 })
 export class FirefoxViewComponent {
 
-  private form: FormGroup;
+  public form: FormGroup;
   
-  private formValueChanges: FirefoxState;
+  public formValueChanges: FirefoxState;
   
-  private formValue: FirefoxState;
+  public formValue: FirefoxState;
 
   @Input() public value: string;
 
