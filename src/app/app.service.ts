@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
 
 @Injectable()
-export class SharedService {
+export class AppService {
 
   constructor(private store: Store<any>) { }
   

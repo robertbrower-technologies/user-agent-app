@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppActionsService } from './app-actions.service';
-import { SharedService } from './shared/shared.service';
+import { AppService } from './app.service';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/debounceTime';
 
@@ -19,14 +19,14 @@ export class AppComponent {
     private router: Router,
     private store: Store<any>,
     private appActions: AppActionsService,
-    private sharedService: SharedService) {}
+    private appService: AppService) {}
 
   ngOnInit() {
 
-    this.sharedService.getAppState('appState')
+    this.appService.getAppState('appState')
       .subscribe(appState => this.appState = appState)
 
-    this.sharedService.getAppState()
+    this.appService.getAppState()
       .distinctUntilChanged()
       .debounceTime(1000)
       .subscribe(rootState => {

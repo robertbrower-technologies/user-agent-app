@@ -6,7 +6,7 @@ import { appReducer } from './app.reducer';
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { AppActionsService } from './app-actions.service';
-import { SharedModule } from './shared/shared.module';
+import { AppService } from './app.service';
 
 @NgModule({
   declarations: [
@@ -17,10 +17,9 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ appState: appReducer }),
-    SharedModule.forRoot(),
     routing
   ],
-  providers: [AppActionsService],
+  providers: [AppActionsService, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

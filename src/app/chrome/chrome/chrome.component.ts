@@ -3,7 +3,6 @@ import { Observable } from 'rxjs/Observable';
 import { ChromeService } from '../chrome.service';
 import { ChromeActionsService } from '../chrome-actions.service';
 import { ChromeState } from '../chrome-state';
-import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'chrome',
@@ -18,8 +17,7 @@ export class ChromeComponent {
 
   constructor(
     private chrome: ChromeService,
-    private chromeActions: ChromeActionsService,
-    private sharedService: SharedService
+    private chromeActions: ChromeActionsService
   ) {
     this.chrome.getValue().subscribe(value => this.value = value);
     this.currentValue$ = this.chrome.getCurrentValue();
