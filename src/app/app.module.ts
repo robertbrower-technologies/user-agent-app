@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { appReducer } from './app.reducer';
 import { routing } from './app.routing';
@@ -15,7 +15,6 @@ import { AppService } from './app.service';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     StoreModule.forRoot({ appState: appReducer }),
     routing
   ],
