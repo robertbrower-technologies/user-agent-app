@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { FirefoxState } from '../../firefox-state';
@@ -6,7 +6,8 @@ import { FirefoxState } from '../../firefox-state';
 @Component({
   selector: 'firefox-view',
   templateUrl: './firefox-view.component.html',
-  styleUrls: ['./firefox-view.component.css']
+  styleUrls: ['./firefox-view.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FirefoxViewComponent implements OnInit {
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { ChromeState } from '../../chrome-state';
@@ -6,7 +6,8 @@ import { ChromeState } from '../../chrome-state';
 @Component({
   selector: 'chrome-view',
   templateUrl: './chrome-view.component.html',
-  styleUrls: ['./chrome-view.component.css']
+  styleUrls: ['./chrome-view.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChromeViewComponent implements OnInit {
 
